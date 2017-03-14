@@ -1,10 +1,8 @@
-
 package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.Callback;
 
 public class RNLocationChangeModule extends ReactContextBaseJavaModule {
 
@@ -18,5 +16,15 @@ public class RNLocationChangeModule extends ReactContextBaseJavaModule {
   @Override
   public String getName() {
     return "RNLocationChange";
+  }
+
+  @ReactMethod
+  public void start() {
+    //not implemented yet
+  }
+
+  @ReactMethod
+  public void stop() {
+    //not implemented yet
   }
 }
