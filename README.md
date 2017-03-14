@@ -1,7 +1,41 @@
 
 # react-native-location-change
 
-React native library for getting _sugnificant_ location changes from iOS (only).  An example is [here](https://github.com/npomfret/react-native-location-change-example).
+React native library for getting _significant_ location changes from iOS (only).  An example is [here](https://github.com/npomfret/react-native-location-change-example).
+
+Standard RN installation instructions below, but you also need to modify your `info.plist` file:
+
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>This is needed to get location updates</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+    <string>This is needed to get location updates in the background</string>
+
+Add the dependency to your package.json (its not on npm yet)
+
+    "react-native-location-change": "git@github.com:npomfret/react-native-location-change.git"
+    
+And your js code should do something like:
+    
+    import {AppRegistry, StyleSheet, Text, View, NativeModules, NativeEventEmitter} from "react-native";
+    
+    const _EVENT_EMITTER = new NativeEventEmitter(NativeModules.RNLocationChange);
+    
+    export default class LocationChangeExample extends Component {
+      componentWillMount() {
+        this.setState({location: null});
+    
+        _EVENT_EMITTER.addListener('significantLocationChange', (data) => {
+          console.log("event:", data);
+          this.setState({location: data});
+        });
+    
+        NativeModules.RNLocationChange.start();
+      }
+    
+      componentWillUnmount() {
+        NativeModules.RNLocationChange.stop();
+      }
+
 
 ## Getting started
 
