@@ -29,6 +29,12 @@ RCT_EXPORT_METHOD(start) {
     locationManager.distanceFilter = 50;// meters
     locationManager.delegate = self;
     
+    if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        [locationManager requestAlwaysAuthorization];
+    } else if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [locationManager requestWhenInUseAuthorization];
+    }
+    
     [locationManager startMonitoringSignificantLocationChanges];
 }
 
