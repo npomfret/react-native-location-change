@@ -1,6 +1,8 @@
 
 # react-native-location-change
 
+React native library for getting _sugnificant_ location changes from iOS (only).  An example is [here](https://github.com/npomfret/react-native-location-change-example).
+
 ## Getting started
 
 `$ npm install react-native-location-change --save`
