@@ -9,5 +9,15 @@
 }
 RCT_EXPORT_MODULE()
 
+- (NSArray<NSString *> *)supportedEvents {
+    return @[@"locationChanged"];
+}
+
+RCT_EXPORT_METHOD(start) {
+    NSDictionary *dictionary = @{
+                                 @"foo": @"bar",
+                                 };
+    [self sendEventWithName:@"locationChanged" body:dictionary];
+}
+
 @end
-  
