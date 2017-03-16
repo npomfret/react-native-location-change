@@ -21,12 +21,11 @@ RCT_EXPORT_MODULE()
 }
 
 RCT_EXPORT_METHOD(start) {
-    
-    if (nil == locationManager)
+    if (!locationManager)
         locationManager = [[CLLocationManager alloc] init];
     
-    locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
-    locationManager.distanceFilter = 50;// meters
+    //locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    //locationManager.distanceFilter = 50;// meters
     locationManager.delegate = self;
     
     if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
@@ -39,7 +38,7 @@ RCT_EXPORT_METHOD(start) {
 }
 
 RCT_EXPORT_METHOD(stop) {
-    if (nil == locationManager)
+    if (!locationManager)
         return;
     
     [locationManager stopMonitoringSignificantLocationChanges];
