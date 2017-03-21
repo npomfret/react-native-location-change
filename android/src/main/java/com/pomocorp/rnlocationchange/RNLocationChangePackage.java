@@ -1,4 +1,4 @@
-package com.pomocorp;
+package com.pomocorp.rnlocationchange;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;

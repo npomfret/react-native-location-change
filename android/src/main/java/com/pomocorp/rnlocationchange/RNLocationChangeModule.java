@@ -1,4 +1,4 @@
-package com.pomocorp;
+package com.pomocorp.rnlocationchange;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
