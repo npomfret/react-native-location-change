@@ -19,10 +19,25 @@ Add the dependency (its not on npm yet)
 
 Standard RN installation instructions for a native module are below, but you also need to modify your `info.plist` file:
 
-	<key>NSLocationWhenInUseUsageDescription</key>
+iOS 11 and higher:
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
     <string>This is needed to get location updates</string>
 	<key>NSLocationAlwaysUsageDescription</key>
     <string>This is needed to get location updates in the background</string>
+
+Prior to iOS 11:
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>This is needed to get location updates</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+    <string>This is needed to get location updates in the background</string>
+
+If you'd like background updates, you may also need to add the following UI background modes to youy `info.plist` file:
+
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>location</string>
+	</array>
     
 # Usage    
 

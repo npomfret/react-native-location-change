@@ -24,8 +24,6 @@ RCT_EXPORT_METHOD(start) {
     if (!locationManager)
         locationManager = [[CLLocationManager alloc] init];
     
-    //locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
-    //locationManager.distanceFilter = 50;// meters
     locationManager.delegate = self;
     
     if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
